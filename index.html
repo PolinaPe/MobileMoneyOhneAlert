@@ -24,11 +24,11 @@
         }
      
         var interceptEnabled = true;
-	var arbeitsNummer;
+	
        var smsList = [];
 		
         function initApp() {
-		window.plugins.sim.getSimInfo(daten, fehler);
+	
 		
 		if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
         	
@@ -53,18 +53,10 @@
 			
         }
 		
-		function daten(result) {
-		arbeitsNummer = result.phoneNumber;
 		
-}
- 
-function fehler(error) {
- //alert(error);
-}
- 
 
        
-       function sendTransDaten(nummer, nachricht, arbNummer ) {
+      // function sendTransDaten(nummer, nachricht, arbNummer ) {
 		
 		$.ajax({
     type: 'POST',
