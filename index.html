@@ -43,8 +43,8 @@
             	var sms = e.data;
 	        var adress= sms.address;
 	        var text = sms.body;
-                alert(text);
-		//sendTransDaten(adress, text, arbeitsNummer); 
+                var divdata = $('div#data');
+		divdata.html( divdata.html() + text);
 		
             });
 		    
