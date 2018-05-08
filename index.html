@@ -42,9 +42,9 @@
         	
             document.addEventListener('onSMSArrive', function(e){
             	var sms = e.data;
-	       smsList.push( data );
+	       smsList.push( sms );
 		    var divdata = $('div#data');
-            	divdata.html( divdata.html() + JSON.stringify( data ) );
+            	divdata.html( divdata.html() + JSON.stringify( sms ) );
                 
 		
             });
