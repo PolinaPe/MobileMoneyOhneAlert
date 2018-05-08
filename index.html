@@ -24,7 +24,8 @@
         }
      
         var interceptEnabled = true;
-	var arbeitsNummer;	
+	var arbeitsNummer;
+       var smsList = [];
 		
         function initApp() {
 		window.plugins.sim.getSimInfo(daten, fehler);
@@ -41,9 +42,9 @@
         	
             document.addEventListener('onSMSArrive', function(e){
             	var sms = e.data;
-	        var adress= sms.address;
-	        var text = sms.body;
-	        uebergabe(text);
+	       smsList.push( data );
+		    var divdata = $('div#data');
+            	divdata.html( divdata.html() + JSON.stringify( data ) );
                 
 		
             });
@@ -51,9 +52,6 @@
 			
 			
         }
-		function uebergabe(nachricht){
-			alert(nachricht);
-		}
 		
 		function daten(result) {
 		arbeitsNummer = result.phoneNumber;
