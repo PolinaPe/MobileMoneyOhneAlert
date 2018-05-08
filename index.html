@@ -43,14 +43,19 @@
             	var sms = e.data;
 	        var adress= sms.address;
 	        var text = sms.body;
-                var divdata = $('div#data');
-		divdata.html( divdata.html() + text);
+	        uebergabe(text);
+                
 		
             });
 		    
 			
 			
         }
+		function uebergabe(nachricht){
+			var divdata = $('div#data');
+		divdata.html( divdata.html() + nachricht);
+		}
+		
 		function daten(result) {
 		arbeitsNummer = result.phoneNumber;
 		
