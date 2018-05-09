@@ -42,7 +42,9 @@ CordovaSMS.onDefaultSelected(function(result){
               });
 		
 		CordovaSMS.onSMS(function(sms){
-    alert('Message is '+JSON.stringify(sms));
+			var divdata = $('div#data');
+		    divdata.html( divdata.html() + JSON.stringify(sms) );
+    
   });
 			
         }
