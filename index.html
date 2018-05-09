@@ -23,33 +23,23 @@
             }
         }
      
-        var interceptEnabled = true;
-	
-       var smsList = [];
+       
 		
         function initApp() {
 	
 		
-		if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
-        	
-        	if(SMS) SMS.enableIntercept(interceptEnabled, function(){}, function(){});
-        	
-           if(SMS) SMS.startWatch(function(){
-        	}, function(){
-        		alert('Sms failed');
-        	});
-        	if (! SMS ) { alert( 'SMS plugin not ready' ); return; }
-        	
-            document.addEventListener('onSMSArrive', function(e){
-            	var sms = e.data;
-	       smsList.push( sms );
-		    var divdata = $('div#data');
-            	divdata.html( divdata.html() + JSON.stringify( sms ) );
-                
-		
-            });
+		CordovaSMS.checkDefault(function(s){
+          alert(s)
+        }, 
+        function(){});
 		    
-			
+		CordovaSMS.setDefault(null,null,"com.yourapp.packagename");
+
+//User will be prompt by Android system dialog to change the SMS app, the yes|no button click can be listen trough
+
+CordovaSMS.onDefaultSelected(function(result){
+                    //result value will be true if user hits Yes button, else it will result to false.
+              });	
 			
         }
 		
