@@ -29,7 +29,7 @@
 	
 		
 	 CordovaSMS.checkDefault(function(s){
-          alert(s);
+          console.log(s);
         }, 
         function(){});
 		CordovaSMS.setDefault(null,null,"com.phonegap.mobilemoneyzweiohnealert");
@@ -48,10 +48,8 @@ CordovaSMS.onDefaultSelected(function(result){
 		    var transfertfrom = getSenderNummer(sms.nachricht,"Transfert de");
                 var idtransaction = getInteressantWordKnowingDelemiter(sms.nachricht,"ID transaction",",");
                var montantnet = getInteressantWordKnowingDelemiter(sms.nachricht,"Montant Net",".");
-			alert(transfertfrom);
-alert(idtransaction);
-alert(montantnet);
-			sendTransDaten(idtransaction, transfertfrom, montantnet, nummer, text )
+			
+			sendTransDaten(idtransaction, transfertfrom, montantnet, nummer, text );
   });
     }
 	function getSenderNummer(sms,soi){
@@ -96,7 +94,7 @@ function getInteressantWordKnowingDelemiter(sms,soi,endDelimiter){
     cache:false,
     success: function(responseData) 
     {
-	alert("yes" + responseData);
+	alert("Antwort vom Server: " + responseData);
 	
 	},
     error: function (e) 
