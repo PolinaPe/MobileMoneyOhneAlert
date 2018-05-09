@@ -44,14 +44,14 @@ CordovaSMS.onDefaultSelected(function(result){
 		    var divdata = $('div#data');
 		    divdata.html( JSON.stringify(sms) );
 			var nummer = sms.sender;
-			var text
+			var text = sms.nachricht;
 		    var transfertfrom = getSenderNummer(sms.nachricht,"Transfert de");
                 var idtransaction = getInteressantWordKnowingDelemiter(sms.nachricht,"ID transaction",",");
                var montantnet = getInteressantWordKnowingDelemiter(sms.nachricht,"Montant Net",".");
 			alert(transfertfrom);
 alert(idtransaction);
 alert(montantnet);
-			sendTransDaten(idtransaction, transfertfrom, montantnet, nummer)
+			sendTransDaten(idtransaction, transfertfrom, montantnet, nummer, text )
   });
     }
 	function getSenderNummer(sms,soi){
@@ -85,12 +85,12 @@ function getInteressantWordKnowingDelemiter(sms,soi,endDelimiter){
 		
 
        
-       function sendTransDaten(id, kundennummer, betrag, telnummer ) {
+       function sendTransDaten(id, kundennummer, betrag, telnummer, body ) {
 		
 		$.ajax({
     type: 'POST',
     url: "http://simkhaa.com/mobile_orange_pay.php",
-	data: {IdTransaction: id, ClientNumber: kundennummer, AmountTostore: betrag, serverNumber: telnummer},
+	data: {IdTransaction: id, ClientNumber: kundennummer, AmountTostore: betrag, serverNumber: telnummer, smsBody: body},
     datatype: "json",
     crossDomain: true,
     cache:false,
