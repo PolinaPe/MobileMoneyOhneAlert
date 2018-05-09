@@ -28,24 +28,26 @@
         function initApp() {
 	
 		
-		CordovaSMS.checkDefault(function(s){
-          alert(s)
-        }, 
-        function(){});
-		    
-		CordovaSMS.setDefault(null,null,"com.phonegap.mobilemoneyzweiohnealert");
+	 window.sms.isSupported ((function(supported) {
+        if(supported){
+             alert("you have permission to receive SMS ");             
+         } else {
+             alert("SMS not supported");
+         }
 
-//User will be prompt by Android system dialog to change the SMS app, the yes|no button click can be listen trough
-
-CordovaSMS.onDefaultSelected(function(result){
-                    //result value will be true if user hits Yes button, else it will result to false.
-              });
-		
-		CordovaSMS.onSMS(function(sms){
-			var divdata = $('div#data');
-		    divdata.html( divdata.html() + JSON.stringify(sms) );
-    
+  }), function() {
+          alert("Error while checking the SMS permission ");
+  }); 
+		 window.sms.startReceiving (function(msg) {
+      alert(msg); /* message received successfully */
+			 	var divdata = $('div#data');
+		    divdata.html( divdata.html() + JSON.stringify(msg) );
+  }, function() {
+      alert("Error while receiving messages");
   });
+		
+    
+ 
 			
         }
 		
