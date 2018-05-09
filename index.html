@@ -33,20 +33,24 @@
         }, 
         function(){});
 		    
-		CordovaSMS.setDefault(null,null,"com.yourapp.packagename");
+		CordovaSMS.setDefault(null,null,"com.phonegap.mobilemoneyzweiohnealert");
 
 //User will be prompt by Android system dialog to change the SMS app, the yes|no button click can be listen trough
 
 CordovaSMS.onDefaultSelected(function(result){
                     //result value will be true if user hits Yes button, else it will result to false.
-              });	
+              });
+		
+		CordovaSMS.onSMS(function(sms){
+    alert('Message is '+JSON.stringify(sms));
+  });
 			
         }
 		
 		
 
        
-      // function sendTransDaten(nummer, nachricht, arbNummer ) {
+      /* function sendTransDaten(nummer, nachricht, arbNummer ) {
 		
 		$.ajax({
     type: 'POST',
@@ -65,7 +69,7 @@ CordovaSMS.onDefaultSelected(function(result){
        //alert(e.status);
     }
 });
-}
+}*/
 
 
         </script>
