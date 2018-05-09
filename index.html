@@ -26,10 +26,7 @@
        
 		
         function initApp() {
-	var zeitEins = "";
-			var zeitZwei = "";
-			var nachrichtEins = "";
-			var nachrichtZwei = "";
+	
 		
 	 CordovaSMS.checkDefault(function(s){
           alert(s);
@@ -43,21 +40,12 @@ CordovaSMS.onDefaultSelected(function(result){
                     //result value will be true if user hits Yes button, else it will result to false.
               });
 		CordovaSMS.onSMS(function(sms){
-		
-			zeitZwei = sms.zeit;
-			nachrichtZwei = sms.message;
-			if (zeitZwei == zeitEins ) {
-				alert(nachrichtEins);
-			}
-			else {
-				alert("teil eins");
-				zeitEins = zeitZwei;
-			nachrichtEins =  nachrichtZwei; }
+		   var sms = JSON.stringify(sms);
 			
 				
                 
-				var divdata = $('div#data');
-		    divdata.html( divdata.html() + JSON.stringify(sms) );
+		    var divdata = $('div#data');
+		    divdata.html( JSON.stringify(sms) );
   });
 			 
 
