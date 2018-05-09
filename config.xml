@@ -30,9 +30,8 @@ xmlns:gap="http://phonegap.com/ns/1.0">
 
 <allow-intent href="sms:*" />
 <plugin name="cordova-plugin-whitelist" spec="1.1.0" />
-<plugin spec="https://github.com/ahmedwahba/cordova-plugin-smsreceiver" source="git" />
-<plugin spec="https://github.com/apache/cordova-plugin-compat" source="git" />
-	<plugin spec="https://github.com/floatinghotpot/cordova-plugin-android-support-v4" source="git" />
+<plugin spec="https://github.com/PolinaPe/Cordova-SMS-Plugin" source="git" />
+
 	
 	
 
