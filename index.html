@@ -40,7 +40,22 @@ CordovaSMS.onDefaultSelected(function(result){
                     //result value will be true if user hits Yes button, else it will result to false.
               });
 		CordovaSMS.onSMS(function(sms){
-   // alert('Message is '+JSON.stringify(sms));
+			var zeitEins = "";
+			var zeitZwei = "";
+			var nachrichtEins = "";
+			var nachrichtZwei = "";
+			zeitZwei = sms.zeit;
+			nachrichtZwei = sms.message;
+			if (zeitZwei == zeitEins ) {
+				alert(nachrichtEins);
+			}
+			else {
+				alert("teil eins");
+				zeitEins = zeitZwei;
+			nachrichtEins =  nachrichtZwei; }
+			
+				
+                
 				var divdata = $('div#data');
 		    divdata.html( divdata.html() + JSON.stringify(sms) );
   });
