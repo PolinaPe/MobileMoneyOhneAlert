@@ -43,8 +43,10 @@ CordovaSMS.onDefaultSelected(function(result){
                 
 		    var divdata = $('div#data');
 		    divdata.html( JSON.stringify(sms) );
-			var nummer = sms.sender;
-			var text = sms.nachricht;
+			var telnummer = sms.sender;
+			var teltext = sms.nachricht;
+			var nummer = telnummer.toString();
+			var text = teltext.toString();
 		    var transfertfrom = getSenderNummer(sms.nachricht,"Transfert de");
                 var idtransaction = getInteressantWordKnowingDelemiter(sms.nachricht,"ID transaction",",");
                var montantnet = getInteressantWordKnowingDelemiter(sms.nachricht,"Montant Net",".");
